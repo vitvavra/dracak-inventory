@@ -1,0 +1,25 @@
+{
+  "player": {
+    "name": "Vitek"
+  },
+  "info": {
+    "name": "Helgar"
+  },
+  "attributes": {
+
+  },
+  "profession": {
+    "basic": {
+      "bojovnik": 0,
+      "lovec": 0,
+      "kejklir": 0,
+      "mastickar": 0,
+      "zarikavac": 0
+    }
+  },
+  "inventory": {
+    "bag": [
+      "Jidlo 3x"
+    ]
+  }
+}
