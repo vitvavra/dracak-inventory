@@ -17,12 +17,44 @@ export class Character implements ICharacter {
     attributes: CharacterAttributes;
     profession: IProfession;
     inventory: Inventory;
+
     constructor() {
+        this.id = 0;
         this.player = <Player>{};
         this.info = <CharacterBasicInfo>{};
         this.attributes = <CharacterAttributes>{};
         this.profession = <IProfession>{};
         this.inventory = <Inventory>{};
+    }
+
+    static fromDb(character: any): Character {
+        const that = new Character();
+        that.id = character.id;
+        that.player = <Player>{
+            name: character.playerName,
+        };
+        that.info = <CharacterBasicInfo>{
+            name: character.characterName
+        };
+        that.attributes = <CharacterAttributes>{
+            charm: character.attrCharm,
+            constitution: character.attrConstitution,
+            determination: character.attrDetermination,
+            dexterity: character.attrDexterity,
+            intelligence: character.attrIntelligence,
+            serenity: character.attrSerenity
+        };
+        that.profession = <IProfession>{
+            basic: {
+                bojovnik: character.profBojovnik,
+                lovec: character.profLovec,
+                kejklir: character.profKejklir,
+                mastickar: character.profMastickar,
+                zarikavac: character.profZarikavac,
+            }
+        }
+        that.inventory = <Inventory>{};
+        return that;
     }
 }
 
@@ -64,5 +96,4 @@ enum Race {
     Hobbit
 }
 
-export default {
-}
+export default {}
